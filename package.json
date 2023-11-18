@@ -1,0 +1,27 @@
+{
+  "name": "tamnui-wiki-site",
+  "version": "1.0.0",
+  "description": "A wiki for the Tamnui adventure setting.",
+  "main": "index.js",
+  "repository": "git@github.com:tamnui-wiki-site",
+  "author": "Matt McElwee <matt.mcelwee@jointhebibleproject.com>",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "unified": "^11.0.4"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^15.1.0",
+    "prettier": "^3.1.0"
+  },
+  "scripts": {
+    "build": "",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,md,html}": [
+      "prettier --write"
+    ]
+  }
+}

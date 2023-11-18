@@ -1,0 +1,3 @@
+[submodule "tamnui-wiki"]
+	path = tamnui-wiki
+	url = git@github.com:Renddslow/tamnui-wiki
