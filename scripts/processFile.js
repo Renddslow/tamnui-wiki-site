@@ -7,6 +7,7 @@ import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import rehypeTOC from "@jsdevtools/rehype-toc";
 import remarkHeadingId from "remark-heading-id";
+import rehypeWrap from "rehype-wrap";
 import { read } from "to-vfile";
 import path from "path";
 import slugify from "slugify";
@@ -19,8 +20,10 @@ export const processFile = async (filepath) => {
     .use(remarkGfm)
     .use(remarkHeadingId, { defaults: true })
     .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeWrap, { wrapper: "main.content" })
     .use(rehypeTOC, {
       headings: ["h2"],
+      position: "beforebegin",
       customizeTOC: (table) => {
         const navHasChildren = table.children.every(
           (child) => child.children.length > 0,

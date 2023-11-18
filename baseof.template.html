@@ -4,8 +4,125 @@
     <meta charset="utf-8" />
     <title>{{ title }} - Tamnui Wiki</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+      }
+
+      a {
+        color: #3366cc;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      body {
+        font-size: 16px;
+        width: 100%;
+      }
+
+      h1,
+      h2 {
+        font-family: "Linux Libertine", "Georgia", "Times", "Source Serif Pro",
+          serif;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+        font-weight: 400;
+        display: block;
+        width: 100%;
+        box-shadow: 0 1px #a2a9b1;
+        line-height: 1.375;
+      }
+
+      header {
+        padding: 0.05px 1.5rem;
+        margin-bottom: 0.875em;
+        margin-top: 70px;
+      }
+
+      h2 {
+        font-size: 1.5em;
+        font-weight: 400;
+        padding: 1em 0 0;
+        margin-bottom: 0.5em;
+        border-bottom: 1px solid #a2a9b1;
+      }
+
+      .content {
+        font-size: 0.875rem;
+        line-height: 1.6;
+      }
+
+      .toc {
+        float: left;
+        padding: 12px 12px 18px;
+        border: 1px solid #a2a9b1;
+        border-radius: 2px;
+        background: #f8f9fa;
+        margin-right: 18px;
+        margin-bottom: 18px;
+      }
+
+      .toc ol {
+        list-style: none;
+        display: grid;
+        grid-gap: 12px;
+        font-size: 14px;
+        padding-left: 0;
+      }
+
+      .toc ol::before {
+        content: "Contents";
+        color: #54595d;
+        line-height: 1.4;
+        display: block;
+        width: 100%;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #a2a9b1;
+      }
+
+      .toc ol a {
+        word-break: break-word;
+        color: #3366cc;
+      }
+
+      ol,
+      ul {
+        padding-left: 1.5rem;
+      }
+
+      .body-content {
+        padding: 0.05px 1.5rem;
+      }
+
+      footer {
+        display: block;
+        width: 100%;
+        padding: 50px 0 83px;
+      }
+
+      @media screen and (max-width: 768px) {
+        .toc {
+          float: none;
+          display: block;
+          width: 100%;
+          margin: 0 auto 18px;
+        }
+      }
+    </style>
   </head>
   <body>
+    <header>
+      <h1>{{ title }}</h1>
+    </header>
     <div class="body-content">{{ content }}</div>
+    <footer></footer>
   </body>
 </html>
