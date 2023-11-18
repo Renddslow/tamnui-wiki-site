@@ -8,6 +8,7 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
+    "remark-parse": "^11.0.0",
     "unified": "^11.0.4"
   },
   "devDependencies": {

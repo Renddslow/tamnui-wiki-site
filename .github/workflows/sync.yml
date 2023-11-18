@@ -1,0 +1,27 @@
+name: 'Sync Wiki Content'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    defaults:
+        run:
+            shell: bash
+    steps:
+      - uses: actions/checkout@v2
+        with:
+            token: ${{ secrets.GI_TOKEN }}
+            submodules: true
+      - name: 'Git submodule update'
+        run: |
+          git pull --recurse-submodules
+          git submodule update --remote --recursive
+      - name: 'Commit'
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'bot@noreply.github.com'
+          git add .
+          git commit -m '[🏝️] Sync wiki content'
+          git push
