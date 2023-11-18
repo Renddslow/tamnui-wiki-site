@@ -8,8 +8,23 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
+    "@jsdevtools/rehype-toc": "^3.0.2",
+    "rehype-stringify": "^10.0.0",
+    "remark-frontmatter": "^5.0.0",
+    "remark-gfm": "^4.0.0",
+    "remark-heading-id": "^1.0.1",
+    "remark-mermaid": "^0.2.0",
+    "remark-obsidian": "^1.8.0",
     "remark-parse": "^11.0.0",
-    "unified": "^11.0.4"
+    "remark-rehype": "^11.0.0",
+    "remark-toc": "^9.0.0",
+    "slugify": "^1.6.6",
+    "templite": "^1.2.0",
+    "to-vfile": "^8.0.0",
+    "unified": "^11.0.4",
+    "unist-util-filter": "^5.0.1",
+    "unist-util-is": "^6.0.0",
+    "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
     "husky": "^8.0.3",
@@ -17,7 +32,7 @@
     "prettier": "^3.1.0"
   },
   "scripts": {
-    "build": "",
+    "build": "node scripts/build.js",
     "prepare": "husky install"
   },
   "lint-staged": {

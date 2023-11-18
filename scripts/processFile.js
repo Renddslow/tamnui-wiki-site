@@ -1,9 +1,45 @@
 import { unified } from "unified";
-import { join } from "path";
-import { readFile } from "fs/promises";
 import remarkParse from "remark-parse";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkObsidian from "remark-obsidian";
+import remarkGfm from "remark-gfm";
+import remarkRehype from "remark-rehype";
+import rehypeStringify from "rehype-stringify";
+import rehypeTOC from "@jsdevtools/rehype-toc";
+import remarkHeadingId from "remark-heading-id";
+import { read } from "to-vfile";
+import path from "path";
+import slugify from "slugify";
 
 export const processFile = async (filepath) => {
-  const file = await readFile(filepath, "utf8");
-  const { messages, data } = await unified().use(remarkParse).process(file);
+  const data = await unified()
+    .use(remarkParse)
+    .use(remarkFrontmatter)
+    .use(remarkObsidian)
+    .use(remarkGfm)
+    .use(remarkHeadingId, { defaults: true })
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeTOC, {
+      headings: ["h2"],
+      customizeTOC: (table) => {
+        const navHasChildren = table.children.every(
+          (child) => child.children.length > 0,
+        );
+        return navHasChildren && table;
+      },
+    })
+    .use(rehypeStringify, { allowDangerousHtml: true })
+    .process(await read(filepath));
+
+  return {
+    filepath,
+    data: {
+      ...data.data,
+      title: data.data.title || path.basename(filepath, path.extname(filepath)),
+    },
+    content: String(data),
+    slug: slugify(path.basename(filepath, path.extname(filepath)), {
+      lower: true,
+    }),
+  };
 };
