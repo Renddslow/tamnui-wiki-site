@@ -26,7 +26,7 @@ export const processFile = async (filepath) => {
       position: "beforebegin",
       customizeTOC: (table) => {
         const navHasChildren = table.children.every(
-          (child) => child.children.length > 0,
+          (child) => child.children.length > 1,
         );
         return navHasChildren && table;
       },
