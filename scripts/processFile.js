@@ -11,12 +11,14 @@ import rehypeWrap from "rehype-wrap";
 import { read } from "to-vfile";
 import path from "path";
 import slugify from "slugify";
+import { obsidianPlugin } from "./obsidianParser.js";
 
 export const processFile = async (filepath) => {
   const data = await unified()
     .use(remarkParse)
     .use(remarkFrontmatter)
-    .use(remarkObsidian)
+    .use(obsidianPlugin)
+    // .use(remarkObsidian)
     .use(remarkGfm)
     .use(remarkHeadingId, { defaults: true })
     .use(remarkRehype, { allowDangerousHtml: true })
