@@ -1,7 +1,5 @@
 import { unified } from "unified";
 import remarkParse from "remark-parse";
-import remarkFrontmatter from "remark-frontmatter";
-import remarkObsidian from "remark-obsidian";
 import remarkGfm from "remark-gfm";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
@@ -11,14 +9,20 @@ import rehypeWrap from "rehype-wrap";
 import { read } from "to-vfile";
 import path from "path";
 import slugify from "slugify";
+import { matter } from "vfile-matter";
+import remarkFrontmatter from "remark-frontmatter";
+
 import { obsidianPlugin } from "./obsidianParser.js";
+import { infoBoxParser } from "./infoBoxParser.js";
 
 export const processFile = async (filepath) => {
   const data = await unified()
     .use(remarkParse)
+    .use(() => (tree, file) => {
+      matter(file, { strip: true });
+    })
     .use(remarkFrontmatter)
     .use(obsidianPlugin)
-    // .use(remarkObsidian)
     .use(remarkGfm)
     .use(remarkHeadingId, { defaults: true })
     .use(remarkRehype, { allowDangerousHtml: true })
@@ -33,6 +37,7 @@ export const processFile = async (filepath) => {
         return navHasChildren && table;
       },
     })
+    .use(infoBoxParser)
     .use(rehypeStringify, { allowDangerousHtml: true })
     .process(await read(filepath));
 

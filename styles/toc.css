@@ -1,0 +1,41 @@
+.toc {
+    float: left;
+    padding: 12px 12px 18px;
+    border: 1px solid #a2a9b1;
+    border-radius: 2px;
+    background: #f8f9fa;
+    margin-right: 18px;
+    margin-bottom: 18px;
+}
+
+.toc ol {
+    list-style: none;
+    display: grid;
+    grid-gap: 12px;
+    font-size: 14px;
+    padding-left: 0;
+}
+
+.toc ol::before {
+    content: "Contents";
+    color: #54595d;
+    line-height: 1.4;
+    display: block;
+    width: 100%;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #a2a9b1;
+}
+
+.toc ol a {
+    word-break: break-word;
+    color: #3366cc;
+}
+
+@media screen and (max-width: 768px) {
+    .toc {
+        float: none;
+        display: block;
+        width: 100%;
+        margin: 0 auto 18px;
+    }
+}

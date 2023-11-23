@@ -13,6 +13,7 @@
     "mdast-util-gfm-strikethrough": "^2.0.0",
     "mdast-util-to-markdown": "^2.1.0",
     "mdast-util-to-string": "^4.0.0",
+    "postcss-cli": "^10.1.0",
     "rehype-stringify": "^10.0.0",
     "rehype-wrap": "^1.1.0",
     "remark": "^15.0.1",
@@ -29,19 +30,25 @@
     "templite": "^1.2.0",
     "to-vfile": "^8.0.0",
     "unified": "^11.0.4",
+    "unist-builder": "^4.0.0",
     "unist-util-filter": "^5.0.1",
     "unist-util-is": "^6.0.0",
-    "unist-util-visit": "^5.0.0"
+    "unist-util-visit": "^5.0.0",
+    "vfile-matter": "^5.0.0"
   },
   "devDependencies": {
+    "cssnano": "^6.0.1",
     "husky": "^8.0.3",
     "lint-staged": "^15.1.0",
+    "postcss": "^8.4.31",
+    "postcss-import": "^15.1.0",
     "prettier": "^3.1.0"
   },
   "scripts": {
     "build": "node scripts/build.js",
     "postbuild": "cp -r ./tamnui-wiki/images ./dist/images",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "style": "postcss ./styles/main.css -o ./dist/styles.css"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,md,html}": [

@@ -1,0 +1,12 @@
+@import "markdown.css";
+@import "toc.css";
+
+footer {
+    display: block;
+    width: 100%;
+    padding: 50px 0 83px;
+}
+
+body > header {
+    padding: 48px;
+}
