@@ -1,22 +1,19 @@
 import { element, text } from "./element.js";
+import { infoBoxHeader } from "./components.js";
 
 export const raceInfoBoxTable = (data) => {
   return element.table(
     {
       className: ["infobox race"],
-      style: "text-align: left; width: 240px; font-size: 100%",
+      style: "text-align: left; width: 240px",
     },
     [
       element.tbody({}, [
-        element.tr({}, [
-          element.th({ colspan: 2, className: ["infobox-above"] }, [
-            text(data.race),
-          ]),
-        ]),
+        element.tr({}, [infoBoxHeader(data.race, "#d7d6dc")]),
         element.tr({}, [
           element.td({ colspan: 2 }, [element.img({ src: data.image })]),
         ]),
-        element.tr({}, [element.th({ colspan: 2 }, [text("Statistics")])]),
+        element.tr({}, [infoBoxHeader("Statistics", "#d7d6dc")]),
         element.tr({}, [
           element.td({}, [text("Size")]),
           element.td({}, [text(data.size)]),
@@ -25,9 +22,7 @@ export const raceInfoBoxTable = (data) => {
           element.td({}, [text("Alignment")]),
           element.td({}, [text(data.alignment)]),
         ]),
-        element.tr({}, [
-          element.th({ colspan: 2 }, [text("General Information")]),
-        ]),
+        element.tr({}, [infoBoxHeader("General Information", "#d7d6dc")]),
         element.tr({}, [
           element.td({}, [text("Average lifespan")]),
           element.td({}, [text(data.average_lifespan)]),
