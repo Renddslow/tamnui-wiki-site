@@ -3,7 +3,7 @@ import { element, text } from "./element.js";
 export const raceInfoBoxTable = (data) => {
   return element.table(
     {
-      className: ["infoBox race"],
+      className: ["infobox race"],
       style: "text-align: left; width: 200px; font-size: 100%",
     },
     [
