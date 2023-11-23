@@ -9,9 +9,9 @@ export const raceInfoBoxTable = (data) => {
     },
     [
       element.tbody({}, [
-        element.tr({}, [infoBoxHeader(data.race, "#d7d6dc")]),
+        element.tr({}, [infoBoxHeader(data?.race ?? "", "#d7d6dc")]),
         element.tr({}, [
-          element.td({ colspan: 2 }, [element.img({ src: data.image })]),
+          element.td({ colspan: 2 }, [element.img({ src: data?.image || "" })]),
         ]),
         element.tr({}, [infoBoxHeader("Statistics", "#d7d6dc")]),
         element.tr({}, [
