@@ -46,7 +46,7 @@
   },
   "scripts": {
     "build": "node scripts/build.js",
-    "postbuild": "cp -r ./tamnui-wiki/images ./dist/images && yarn style",
+    "postbuild": "cp -r ./tamnui-wiki/images/ ./dist/images && yarn style",
     "prepare": "husky install",
     "style": "postcss ./styles/main.css -o ./dist/styles.css"
   },
