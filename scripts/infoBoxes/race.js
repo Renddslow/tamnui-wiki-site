@@ -4,7 +4,7 @@ export const raceInfoBoxTable = (data) => {
   return element.table(
     {
       className: ["infobox race"],
-      style: "text-align: left; width: 200px; font-size: 100%",
+      style: "text-align: left; width: 240px; font-size: 100%",
     },
     [
       element.tbody({}, [
