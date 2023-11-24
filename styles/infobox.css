@@ -20,3 +20,8 @@
 .infobox img {
     width: 100%;
 }
+
+.infobox ul {
+    list-style: none;
+    padding-left: 0;
+}
