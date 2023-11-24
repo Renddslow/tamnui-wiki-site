@@ -5,7 +5,7 @@ export const deityInfoBoxTable = (data) => {
   return element.table(
     {
       className: ["infobox race"],
-      style: "text-align: left; width: 240px",
+      style: "text-align: left; width: 300px",
     },
     [
       element.tbody({}, [
