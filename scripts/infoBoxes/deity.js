@@ -38,7 +38,7 @@ export const deityInfoBoxTable = (data) => {
                   {
                     href: `/${pantheon
                       .toLowerCase()
-                      .replace(/\w/g, "-")}-pantheon`,
+                      .replace(/\s/g, "-")}-pantheon`,
                   },
                   [text(`${pantheon} Pantheon`)],
                 ),
