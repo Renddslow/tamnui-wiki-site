@@ -9,6 +9,10 @@ ul {
     max-width: 940px;
 }
 
+.body-content p {
+    white-space: pre-wrap;
+}
+
 table:not(.infobox) {
     background-color: #f8f9fa;
     color: #202122;
@@ -26,4 +30,10 @@ table:not(.infobox) tr > td,
 table:not(.infobox) tr > th {
     border: 1px solid #a2a9b1;
     padding: 0.2em 0.4em;
+}
+
+blockquote {
+    margin: 0 12px;
+    padding: 0 40px;
+    border-left: 0.25em solid #d7d6dc;
 }
