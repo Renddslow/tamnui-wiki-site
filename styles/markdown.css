@@ -33,7 +33,7 @@ table:not(.infobox) tr > th {
 }
 
 blockquote {
-    margin: 0 12px;
-    padding: 0 40px;
-    border-left: 0.25em solid #d7d6dc;
+    border-left: 6px solid #d7d6dc;
+    margin: 12px 0;
+    padding: 0 24px;
 }
